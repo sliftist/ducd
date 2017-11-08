@@ -1,6 +1,8 @@
 export * from './html'
 export * from './visitor'
 
+export var t = m=> m[0].map((x,i) => m.map(x=> x[i]))
+
 export interface /*Controller*/Args
 {
     parent
