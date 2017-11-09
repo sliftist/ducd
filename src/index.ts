@@ -1,5 +1,6 @@
 export * from './html'
 export * from './visitor'
+export * from './util'
 
 export var t = m=> m[0].map((x,i) => m.map(x=> x[i]))
 
