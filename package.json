@@ -1,19 +1,17 @@
 {
-  "name": "duct",
+  "name": "ducd",
   "main": "dist/js/index.js",
   "types": "dist/d/index.js.map",
   "version": "1.0.0",
   "description": "keep it together",
   "author": "Michael Glatzhofer",
   "license": "???",
-  "homepage": "https://github.com/glouwa/d3-hypertree#readme",
+  "homepage": "https://github.com/glouwa/ducd#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/glouwa/d3-hypertree.git"
+    "url": "git+https://github.com/glouwa/ducd.git"
   },
-  "keywords": [
-    "hyperbolic tree",
-    "hyper tree"
+  "keywords": [    
   ],
   "scripts": {
     "run": "gulp watch",
