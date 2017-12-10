@@ -6,7 +6,7 @@ export class HTML
         {
             var template = document.createElement('template')
             template.innerHTML = htmlstr
-            return <T>template.content.firstChild
+            return <T>template.content.firstElementChild
         }
     }
 
