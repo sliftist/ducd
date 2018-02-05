@@ -8,7 +8,35 @@ export function tosub(s)
     return result
 }
 
+const isObject = item=> item && typeof item === 'object' && !Array.isArray(item)
+const isArray  = item=> item && typeof item === 'object' &&  Array.isArray(item)
+const mergeDeep = (target, source)=> {
+    console.assert(
+        isObject(target) && isObject(source)
+     || isArray(target)  && isArray(source)
+    )
+    for (const key in source) {        
+        if (isObject(source[key])) {
+            console.log(key, '{}')
+            target[key] = target[key] || {}
+            mergeDeep(target[key], source[key])
+        } 
+        else if (isArray(source[key])) {
+            console.log(key, '[]')
+            target[key] = target[key] || []
+            mergeDeep(target[key], source[key])
+        }
+        else {
+            console.log(key, ' = ')
+            target[key] = source[key]
+        }
+    }        
+    return target
+}
+
 export function clone(o) {
+    //console.trace('calling clone')
+    //return mergeDeep({}, o)
     return JSON.parse(JSON.stringify(o))
 }
 
