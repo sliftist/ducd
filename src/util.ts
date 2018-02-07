@@ -45,7 +45,7 @@ export function  stringhash(s:string) : number {
         hash  = ((hash << 5) - hash) + chr;
         hash |= 0; // Convert to 32bit integer
     }
-    return hash;
+    return Math.abs(hash)
 }
 
 const googlePalette_ = [
