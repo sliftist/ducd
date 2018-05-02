@@ -4,9 +4,17 @@ export class HTML
     {
         return function() : T
         {
-            var template = document.createElement('template')
-            template.innerHTML = htmlstr
-            return <T>template.content.firstElementChild
+            if (navigator.userAgent.includes('Edge')
+             || navigator.userAgent.includes('MSIE')) {
+                var div = document.createElement('div');
+                div.innerHTML = htmlstr
+                return <T>div.firstChild 
+            }
+            else {
+                var template = document.createElement('template')
+                template.innerHTML = htmlstr
+                return <T>template.content.firstElementChild
+            }
         }
     }
 
