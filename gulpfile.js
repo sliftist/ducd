@@ -12,6 +12,11 @@ var paths = {
     dist: './dist/'
 }
 
+var files = {    
+    mainjs: 'ducd.js',
+    maincss: 'ducd.css'
+}
+
 // ---------------------------------------------------------------------------------------------
 
 gulp.task('clean', () =>
@@ -34,7 +39,7 @@ gulp.task('tsc', ['clean'], () => {
 gulp.task('webpack', ['tsc'], () =>
     gulp.src(paths.dist + 'js/index.js')
         .pipe(webpack({
-            output: { filename:'index.js' },
+            output: { filename:files.mainjs },
             devtool: 'source-map'
         }))
         .pipe(gulp.dest(paths.dist)) 
@@ -43,7 +48,7 @@ gulp.task('webpack', ['tsc'], () =>
 gulp.task('sass', () =>
     gulp.src(paths.src + '**/*.scss')
         .pipe(sass())
-        .pipe(concat('index-browser.css'))
+        .pipe(concat(files.maincss))
         .pipe(gulp.dest(paths.dist))
 )
 
