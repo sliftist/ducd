@@ -8,33 +8,49 @@ export function tosub(s)
     return result
 }
 
-const isObject = item=> typeof item === 'object' && !Array.isArray(item)
-const isArray  = item=> typeof item === 'object' &&  Array.isArray(item)
-const mergeDeep = (target, source)=> {
+export const isPrimitive = item=> typeof item !== 'object' // function, string, number, boolean, undefined, symbol
+export const isObject    = item=> typeof item === 'object' && !Array.isArray(item)
+export const isArray     = item=> typeof item === 'object' &&  Array.isArray(item)
+export const mergeDeep = (target, source)=> {
     console.assert(
-        isObject(target) && isObject(source)
-     || isArray(target)  && isArray(source)
+        (isObject(target) && isObject(source)) ||
+        (isArray(target)  && isArray(source))
     )
-    for (const key in source) {        
-        if (isObject(source[key])) {
-            console.log(key, '{}')
-            target[key] = mergeDeep(target[key] || {}, source[key])
-        } 
-        else if (isArray(source[key])) {
-            console.log(key, '[]')
-            target[key] = mergeDeep(target[key] || [], source[key])
+    for (const key in source) 
+    {
+        if (isObject(source[key])) 
+        {
+            console.debug('merging Object: ', key)
+            target[key] = mergeDeep(target[key] || Object.create(Object.getPrototypeOf(source[key])) , source[key])            
         }
-        else {
-            console.log(key, typeof target[key], ' = ', typeof source[key])
+        else if (isArray(source[key])) 
+        {
+            console.debug('merging Array: ', key)
+            target[key] = mergeDeep(target[key] || [], source[key])        
+        }
+        else if (isPrimitive(source[key])) 
+        {
+            console.debug('merging Primitive: ', key)
             target[key] = source[key]
         }
-    }    
-    return target
+        else console.assert(false)
+    }
+    return target 
 }
 
 export function clone(o) {
     //return mergeDeep({}, o)
     return JSON.parse(JSON.stringify(o))
+}
+
+export function shuffleArray(array, n) {        
+    if (array)
+    for (let i = array.length - 1; i > 0; i--) {
+        let r = (i * i + n.height) % array.length 
+        //let r = Math.random()
+        let j = Math.floor(r);
+        [array[i], array[j]] = [array[j], array[i]];
+    }
 }
 
 export function  stringhash(s:string) : number {

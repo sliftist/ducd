@@ -2,10 +2,10 @@
   "name": "ducd",
   "main": "dist/js/index.js",
   "types": "dist/d/index.js.map",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "description": "keep it together",
   "author": "Michael Glatzhofer",
-  "license": "???",
+  "license": "MIT",
   "homepage": "https://github.com/glouwa/ducd#readme",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "globalinstall": "npm i -g gulp"
   },
   "devDependencies": {
-    "browser-sync": "^2.24.4",
+    "browser-sync": "^2.24.6",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
@@ -26,8 +26,8 @@
     "gulp-typescript": "^3.2.1",
     "gulp-util": "^3.0.8",
     "merge2": "^1.2.2",
-    "typescript": "^2.6.1",
-    "webpack": "^3.11.0",
+    "typescript": "^2.9.2",
+    "webpack": "^3.12.0",
     "webpack-stream": "^4.0.1",
     "yargs": "^8.0.2"
   }
