@@ -18,7 +18,8 @@
     "prepare": "gulp build"
   },
   "resolutions": {
-    "graceful-fs": "^4.2.4"
+    "graceful-fs": "4.2.4",
+    "source-map": "0.7.4"
   },
   "devDependencies": {
     "browser-sync": "2.26.14",
@@ -31,8 +32,11 @@
     "gulp-util": "3.0.8",
     "merge2": "1.4.1",
     "typescript": "4.3.2",
-    "webpack": "5.38.1",
-    "webpack-stream": "6.1.2",
+    "webpack": "5.74.0",
+    "webpack-stream": "7.0.0",
     "yargs": "17.0.1"
+  },
+  "dependencies": {
+    "debugbreak": "^0.9.1"
   }
 }
